@@ -39,7 +39,8 @@ except ImportError:
 
 TABS = {
     "Disease Epidemiology": [
-        "disease_name", "icd10_code", "therapeutic_area", "us_prevalence",
+        "disease_name", "icd10_code", "icd10_chapter", "icd10_chapter_name",
+        "therapeutic_area", "us_prevalence",
         "global_prevalence", "us_annual_incidence", "mortality_rate_per_100k",
         "severity_category", "primary_determinants", "specialty_segment",
         "age_group_affected", "annual_cost_per_patient_usd",
@@ -111,6 +112,53 @@ NUMBER_COLS = {
     "phase_1_to_approval", "phase_2_to_approval", "phase_3_to_approval",
     "orphan_boost", "breakthrough_boost", "novel_moa_penalty"
 }
+
+
+# ── ICD-10 Chapter Lookup ─────────────────────────────────────────────
+
+_ICD10_MAP = {
+    "A": ("I", "Infectious & Parasitic Diseases"),
+    "B": ("I", "Infectious & Parasitic Diseases"),
+    "C": ("II", "Neoplasms"),
+    "D0": ("II", "Neoplasms"), "D1": ("II", "Neoplasms"), "D2": ("II", "Neoplasms"),
+    "D3": ("II", "Neoplasms"), "D4": ("II", "Neoplasms"),
+    "D5": ("III", "Blood & Immune Disorders"), "D6": ("III", "Blood & Immune Disorders"),
+    "D7": ("III", "Blood & Immune Disorders"), "D8": ("III", "Blood & Immune Disorders"),
+    "D9": ("III", "Blood & Immune Disorders"),
+    "E": ("IV", "Endocrine, Nutritional & Metabolic"),
+    "F": ("V", "Mental & Behavioral Disorders"),
+    "G": ("VI", "Nervous System"),
+    "H0": ("VII", "Eye & Adnexa"), "H1": ("VII", "Eye & Adnexa"),
+    "H2": ("VII", "Eye & Adnexa"), "H3": ("VII", "Eye & Adnexa"),
+    "H4": ("VII", "Eye & Adnexa"), "H5": ("VII", "Eye & Adnexa"),
+    "H6": ("VIII", "Ear & Mastoid"), "H7": ("VIII", "Ear & Mastoid"),
+    "H8": ("VIII", "Ear & Mastoid"), "H9": ("VIII", "Ear & Mastoid"),
+    "I": ("IX", "Circulatory System"),
+    "J": ("X", "Respiratory System"),
+    "K": ("XI", "Digestive System"),
+    "L": ("XII", "Skin & Subcutaneous Tissue"),
+    "M": ("XIII", "Musculoskeletal & Connective Tissue"),
+    "N": ("XIV", "Genitourinary System"),
+    "O": ("XV", "Pregnancy & Childbirth"),
+    "P": ("XVI", "Perinatal Conditions"),
+    "Q": ("XVII", "Congenital Malformations"),
+    "R": ("XVIII", "Symptoms & Signs"),
+    "S": ("XIX", "Injury & Poisoning"), "T": ("XIX", "Injury & Poisoning"),
+    "V": ("XX", "External Causes"), "W": ("XX", "External Causes"),
+    "X": ("XX", "External Causes"), "Y": ("XX", "External Causes"),
+    "Z": ("XXI", "Factors Influencing Health"),
+}
+
+def icd10_chapter_lookup(code):
+    """Return (chapter_number, chapter_name) from an ICD-10 code."""
+    if not code:
+        return ("", "")
+    code = str(code).strip().upper().split(",")[0].strip()
+    if len(code) >= 2 and code[:2] in _ICD10_MAP:
+        return _ICD10_MAP[code[:2]]
+    if code[0] in _ICD10_MAP:
+        return _ICD10_MAP[code[0]]
+    return ("", "")
 
 
 def create_workbook(path):
@@ -218,6 +266,13 @@ def add_data(wb, tab_name, rows):
     added = 0
 
     for row_data in rows:
+        # Auto-populate ICD-10 chapter if missing
+        if tab_name == "Disease Epidemiology" and "icd10_code" in row_data:
+            if not row_data.get("icd10_chapter"):
+                ch_num, ch_name = icd10_chapter_lookup(row_data.get("icd10_code", ""))
+                row_data["icd10_chapter"] = ch_num
+                row_data["icd10_chapter_name"] = ch_name
+
         for col_idx, col_name in enumerate(columns, 1):
             value = row_data.get(col_name, "")
             cell = ws.cell(row=start_row + added, column=col_idx)

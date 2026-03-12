@@ -1,4 +1,4 @@
-# Database Schema v2.0: drug_whitespace_database.xlsx
+# Database Schema v2.1: drug_whitespace_database.xlsx
 
 ## Tab 1: Disease Epidemiology
 
@@ -6,6 +6,8 @@
 |--------|------|-------------|---------|
 | disease_name | str | Common disease name | Type 2 Diabetes |
 | icd10_code | str | Primary ICD-10 code | E11 |
+| icd10_chapter | str | WHO ICD-10 chapter (Roman numeral, auto-populated) | IV |
+| icd10_chapter_name | str | ICD-10 chapter name (auto-populated) | Endocrine, Nutritional & Metabolic |
 | therapeutic_area | str | Broad category | Endocrine/Metabolic |
 | specialty_segment | str | pediatric, geriatric, rare, general | general |
 | us_prevalence | int | Current US patients | 37000000 |

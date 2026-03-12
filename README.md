@@ -88,19 +88,27 @@ The Excel workbook contains 8 tabs:
 
 ## Current Coverage
 
-The included database covers **50 diseases** across these therapeutic areas:
+The included database covers **200 diseases**, **403 approved drugs**, and **436 pipeline drugs** across **18 ICD-10 chapters** and **22 therapeutic areas**:
 
-- **Oncology** (10): Lung, breast, colorectal, pancreatic, liver, melanoma, prostate, ovarian, glioblastoma, bladder
-- **Neurology** (7): Alzheimer's, Parkinson's, ALS, MS, epilepsy, migraine, Huntington's
-- **Cardiovascular** (4): Heart failure, atrial fibrillation, PAD, pulmonary hypertension
-- **Endocrine/Metabolic** (4): Type 2 diabetes, obesity, type 1 diabetes, NAFLD/NASH
-- **Respiratory** (4): COPD, asthma, IPF, cystic fibrosis
-- **Infectious Disease** (6): HIV/AIDS, tuberculosis, hepatitis B, hepatitis C, measles, RSV
-- **Autoimmune** (5): Rheumatoid arthritis, lupus, Crohn's, psoriasis, ulcerative colitis
-- **Hematology** (2): Sickle cell disease, hemophilia A
-- **Rare Disease** (3): DMD, SMA, Rett syndrome
-- **Mental Health** (3): MDD, schizophrenia, PTSD
-- **Other** (2): CKD, osteoarthritis
+- **Oncology** (27): Lung, breast, colorectal, pancreatic, liver, melanoma, prostate, ovarian, glioblastoma, bladder, AML, RCC, gastric, HNSCC, NHL, thyroid, mesothelioma, soft tissue sarcoma, cervical, endometrial, cholangiocarcinoma, testicular, Merkel cell, MDS, CML, myelofibrosis, Waldenström's
+- **Neurology** (17): Alzheimer's, Parkinson's, ALS, MS, epilepsy, migraine, Huntington's, CIDP, myasthenia gravis, narcolepsy, essential tremor, Charcot-Marie-Tooth, cluster headache, trigeminal neuralgia, Tourette syndrome, spinal cord injury, TBI
+- **Mental Health** (13): MDD, schizophrenia, PTSD, OCD, bipolar, ADHD, anorexia, alcohol use disorder, opioid use disorder, autism spectrum, social anxiety, borderline personality, gambling disorder
+- **Cardiovascular** (13): Heart failure, atrial fibrillation, PAD, pulmonary hypertension, CAD, aortic stenosis, deep vein thrombosis, cardiac amyloidosis, Brugada syndrome, cardiomyopathy, aortic aneurysm, Marfan vascular, moyamoya
+- **Endocrine/Metabolic** (12): Type 2 diabetes, obesity, type 1 diabetes, NAFLD/NASH, hypothyroidism, Cushing's, acromegaly, Addison's, phenylketonuria, Gaucher disease, Fabry disease, congenital adrenal hyperplasia
+- **Infectious Disease** (15): HIV, TB, hepatitis B/C, measles, RSV, MRSA, fungal infections, C. difficile, Chagas, malaria, Lyme, dengue, Zika, CMV, EBV-related
+- **Autoimmune** (12): RA, lupus, Crohn's, psoriasis, UC, scleroderma, Sjögren's, ankylosing spondylitis, vasculitis, polymyositis, sarcoidosis, Behçet's
+- **Hematology** (11): Sickle cell, hemophilia A, von Willebrand, warm AIHA, systemic mastocytosis, aplastic anemia, ITP, TTP, DIC, beta-thalassemia, polycythemia vera
+- **Ophthalmology** (9): AMD, glaucoma, diabetic retinopathy, uveitis, keratoconus, retinitis pigmentosa, Stargardt, dry eye, corneal dystrophy
+- **Dermatology** (8): Atopic dermatitis, vitiligo, hidradenitis, epidermolysis bullosa, pemphigus, alopecia areata, rosacea, ichthyosis
+- **Respiratory** (12): COPD, asthma, IPF, cystic fibrosis, neonatal RDS, sarcoidosis, bronchiectasis, alpha-1 antitrypsin, LAM, pneumoconiosis, sleep apnea, vocal cord dysfunction
+- **Gastroenterology** (10): GERD, IBS, celiac, eosinophilic esophagitis, PBC, PSC, short bowel, gastroparesis, achalasia, chronic pancreatitis
+- **Rare Disease** (8): DMD, SMA, Rett, progeria, Pompe, tuberous sclerosis, neurofibromatosis, hereditary angioedema
+- **Genetics/Congenital** (5): DiGeorge, Fragile X, Down syndrome, Turner syndrome, Marfan syndrome
+- **Obstetrics** (4): Preterm birth, perinatal HIE, preeclampsia, gestational diabetes
+- **Otolaryngology** (4): Tinnitus, Ménière's, chronic sinusitis, otosclerosis
+- **Other areas**: Nephrology (4), Immunology (4), Musculoskeletal (4), Pain (3), Urology (3)
+
+All diseases are mapped to ICD-10 codes and WHO ICD-10 chapters for standardized classification.
 
 ## Visualizations
 
